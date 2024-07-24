@@ -22,7 +22,8 @@ export class UsersComponent implements OnInit {
 
   SubmitForm() {
     if(this.userForm.valid){
-      console.log(this.userForm.value);
+      this.users.push(this.userForm.value)
+      this.userForm.reset
     }
   }
 
