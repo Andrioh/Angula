@@ -1,41 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../_models/user';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrl: './users.component.css'
+  styleUrls: ['./users.component.css']
 })
-export class UsersComponent {
-  //users: String[] = [ 'Lucas','João', 'Peter', 'Maria']
+export class UsersComponent implements OnInit {
   userSelecionado: User | undefined;
-  userForm: FormGroup = new FormGroup({});
+  userForm: FormGroup;
 
-  constructor(private fb: FormGroup){
-
+  constructor(private fb: FormBuilder) {
+    this.userForm = this.fb.group({
+      nome: ['', [Validators.required, Validators.maxLength(250)]],
+      idade: ['', [Validators.required, Validators.min(12), Validators.max(110)]],
+    });
   }
 
-  users: User[] =[
-    {
-      nome: "Lucas",
-      idade: 25
-    },
-    {
-      nome: "João",
-      idade: 19
-    },
-    {
-      nome: "Peter",
-      idade: 45
-    },
-    {
-      nome: "Maria",
-      idade: 32
+  ngOnInit(): void {}
+
+  SubmitForm() {
+    if(this.userForm.valid){
+      console.log(this.userForm.value);
     }
+  }
+
+  users: User[] = [
+    { nome: "Lucas", idade: 25 },
+    { nome: "João", idade: 19 },
+    { nome: "Peter", idade: 45 },
+    { nome: "Maria", idade: 32 }
   ];
 
-  infoUserSelecionado(user: User){
-    this.userSelecionado = user
+  infoUserSelecionado(user: User) {
+    this.userSelecionado = user;
   }
 }
