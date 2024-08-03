@@ -5,12 +5,8 @@
     color: #ffffff;
 }
 
-:router{
-    --Cor1: #000000;
-}
-
 body{
-    background-color: #000000;
+    background-color: #161616;
 }
 
 a{

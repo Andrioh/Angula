@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 10vh;
 }
 
 #Start{
@@ -63,8 +64,11 @@
     width: 80%;
 }
 
-#Dad2 p {
+#Dad2 input{
     color: #000000;
+    border: 0px;
+    outline: none;
+    width: 100%;
 }
 
 #Message{
