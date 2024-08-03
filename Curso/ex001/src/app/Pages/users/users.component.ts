@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../_models/user';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../_services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +12,7 @@ export class UsersComponent implements OnInit {
   userSelecionado: User | undefined;
   userForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
     this.userForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(250)]],
       idade: ['', [Validators.required, Validators.min(12), Validators.max(110)]],
@@ -36,5 +37,6 @@ export class UsersComponent implements OnInit {
 
   infoUserSelecionado(user: User) {
     this.userSelecionado = user;
+    this.userService.setUser(user);
   }
 }
