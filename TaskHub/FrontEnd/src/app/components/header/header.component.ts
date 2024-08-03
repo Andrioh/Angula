@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  Id: number = 0
+
+  ClickNewTask(){
+    this.Id += 1
+    
+  };
 
 }
