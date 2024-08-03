@@ -1,18 +1,29 @@
 import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css'] 
 })
 export class HeaderComponent {
-  Id: number = 0
+  MostrarTask: boolean = true; 
 
-  ClickNewTask(){
-    this.Id += 1
+  constructor(private router: Router) {}
+
+  alterarValor(novoValor: boolean) {
+    this.MostrarTask = novoValor; 
+  }
+
+  clickNewTask() {
+    this.router.navigate(['/index2']);
+
     
-  };
+    this.MostrarTask = !this.MostrarTask;
 
+    console.log(this.MostrarTask); 
+  }
 }

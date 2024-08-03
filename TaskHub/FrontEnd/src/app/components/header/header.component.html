@@ -5,7 +5,7 @@
         </div>
         <div id="NavBar">
             <nav>
-                <button (click)="ClickNewTask()">New Task</button>
+                <button *ngIf="MostrarTask" (click)="clickNewTask()">New Task</button>
             </nav>
         </div>
         <div id="Search">
