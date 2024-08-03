@@ -1,0 +1,80 @@
+#Dad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #05E235 solid 1px;
+    margin: 10px;
+    padding: 10px 0px;
+    height: 6vh;
+    width: 95%;
+}
+
+#Title, #NavBar, #Search, #Message{
+    height: 6vh;
+    width: 25vw;
+}
+
+#Title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw;
+    height: 6vh;
+}
+
+#Title h1{
+    color: #05E235;
+    white-space: nowrap;
+    font-size: 2vw;
+}
+
+#NavBar{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 25vw;
+    font-size: clamp(0.5rem, 2vw, 1rem);
+}
+
+#NavBar nav{
+    padding-left: 5%;
+}
+
+#Search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 37vw;
+}
+
+#Dad2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1px 3%;
+    border-radius: 2px;
+    width: 80%;
+}
+
+#Dad2 p {
+    color: #000000;
+}
+
+#Message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Message p{
+    color: #ffff00;
+    white-space: nowrap;
+    font-size: 2vw;
+}
