@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ShareService } from '../../service/share.service';
 
 @Component({
   selector: 'app-header',
@@ -12,18 +13,13 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
   MostrarTask: boolean = true; 
 
-  constructor(private router: Router) {}
-
-  alterarValor(novoValor: boolean) {
-    this.MostrarTask = novoValor; 
+  constructor(private router: Router, private ServiceValue: ShareService){
+    this.MostrarTask = this.ServiceValue.ObterTaskValue();
   }
 
   clickNewTask() {
     this.router.navigate(['/index2']);
-
-    
-    this.MostrarTask = !this.MostrarTask;
-
-    console.log(this.MostrarTask); 
+    this.ServiceValue.AlterTaskValue(!this.MostrarTask);
+    this.MostrarTask = this.ServiceValue.ObterTaskValue();
   }
 }

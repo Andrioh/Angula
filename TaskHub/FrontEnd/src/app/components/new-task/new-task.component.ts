@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ShareService } from '../../service/share.service';
 
 @Component({
   selector: 'app-new-task',
@@ -10,9 +11,15 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent {
-  constructor(private router: Router) { }
+  MostrarTask: boolean = false;
+
+  constructor(private router: Router, private ServiceValue: ShareService){
+    this.MostrarTask = this.ServiceValue.ObterTaskValue();
+  }
 
   Voltar() {
     this.router.navigate([''])
+
+    this.ServiceValue.AlterTaskValue(!this.ServiceValue.ObterTaskValue)
   }
 }

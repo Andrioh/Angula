@@ -4,6 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ShareService {
+  MostrarTask: boolean = true;
 
-  constructor() { }
+  ObterTaskValue(){
+    return this.MostrarTask;
+  }
+
+  AlterTaskValue(newValue: boolean): void{
+    this.MostrarTask = !this.MostrarTask
+  }
 }
