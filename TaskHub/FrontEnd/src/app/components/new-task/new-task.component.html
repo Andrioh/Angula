@@ -13,13 +13,13 @@
             </div>
             <div id="Options">
                 <div id="OptionsSon">
-                    <input type="text" placeholder="Name" maxlength="20">
-                    <input type="text" placeholder="Category" maxlength="20">
+                    <input type="text" name="name" [(ngModel)]="Name" placeholder="Name" maxlength="20">
+                    <input type="text" name="category" [(ngModel)]="Category" placeholder="Category" maxlength="20">
                 </div>
             </div>
             <div id="Confirm">
                 <div id="ConfirmSon">
-                    <button>Create</button>
+                    <button (click)="CreateCub()">Create</button>
                 </div>
             </div>
 
