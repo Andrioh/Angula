@@ -14,6 +14,8 @@ export class ListEstudoAngulaService {
     return this.List;
   }
 
-
+  addList(list: string): void{
+    this.List.push(list);
+  }
   
 }

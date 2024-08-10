@@ -21,8 +21,40 @@
     width: 100%;
 }
 
-#list{
-    height: 80%;
+#option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
     width: 100%;
-    margin: 10%;
+}
+
+input, input:focus{
+    text-align: center;
+    padding: 0px 10px;
+    border: transparent;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+button{
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 1px 10px;
+    border: transparent;
+    background-color: green;
+    color: white;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+#list{
+    height: 70%;
+    width: 100%;
+}
+
+ul{
+    padding: 10%;
 }

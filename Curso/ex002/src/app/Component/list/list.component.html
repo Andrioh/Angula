@@ -3,6 +3,12 @@
         <div id="title">
             <h1>LISTA</h1>
         </div>
+        <div id="option">
+            <form (ngSubmit)="addlist()">
+                <input type="text" placeholder="Inserir novo objeto na lista" maxlength="10" [(ngModel)]="addlistnew" name="addlistnew">
+                <button type="submit">Inserir</button>
+            </form>
+        </div>
         <div id="list">
             <ul>
                 <li *ngFor="let list of lists">{{list}}</li>
