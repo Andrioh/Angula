@@ -1,12 +1,13 @@
 <div id="Dad">
     <div id="Son">
-        <button class="Cub">
-            <div class="Title">
-                <p>Teste</p>
-            </div>
-            <div class="About">
-                <p>Teste</p>
-            </div>
-        </button>
+      <button class="Cub" *ngFor="let message of messages">
+        <div class="Title">
+          <p>{{ message.Title }}</p>
+        </div>
+        <div class="About">
+          <p>{{ message.About }}</p>
+        </div>
+      </button>
     </div>
-</div>
+  </div>
+  

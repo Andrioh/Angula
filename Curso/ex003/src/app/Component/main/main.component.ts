@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { StorageGenService } from '../../../Service/storage-gen.service';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrls: ['./main.component.css']
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
+  messages: { Title: string, About: string }[] = [];
 
+  constructor(private storage: StorageGenService) {}
+
+  ngOnInit() {
+    this.storage.messages$.subscribe(data => {
+      this.messages = data;
+    });
+  }
 }
