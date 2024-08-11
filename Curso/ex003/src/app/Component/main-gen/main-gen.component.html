@@ -7,13 +7,13 @@
             <div id="About">
                 <form>
                     <div id="titleform">
-                        <input type="text" class="input" placeholder="Typer title" maxlength="10">
+                        <input type="text" class="input" autocomplete="off" placeholder="Typer title" maxlength="10" [(ngModel)]="TitleValue" name="title">
                     </div>
                     <div id="aboutform">
-                        <input type="text" class="input" placeholder="Typer About" maxlength="40">
+                        <input type="text" class="input" autocomplete="off" placeholder="Typer About" maxlength="40" [(ngModel)]="AboutValue" name="about">
                     </div>
                     <div id="submitform">
-                        <input type="submit" id="InputSubmit" value="Confirm">
+                        <input type="submit" id="InputSubmit" value="Confirm" (click)="GetInputValue()">
                     </div>
                 </form>
             </div>
