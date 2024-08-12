@@ -1,0 +1,78 @@
+#Dad{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: 2vh;
+    height: 80vh;
+    width: 100vw;
+}
+
+#Son{
+    height: 90%;
+    width: 50%;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Cub{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height: 10%;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.Texto{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+    width: 80%;
+}
+
+.Button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    color: white;
+    border: none;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    transition: 0.2s;
+    color: #ffffff;
+}
+
+button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.2s;
+    text-decoration: underline;
+}
+
+input{
+    width: 100%;
+    color: white;
+}
+
+input::placeholder{
+    color: white;
+}
+
+input, input:focus{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.done {
+    text-decoration: line-through;
+  }
+  
