@@ -1,6 +1,7 @@
 <div id="Dad">
     <div id="Son">
-        <button class="Cub">
+        <h1 *ngIf="!hasnote()">Looks like you don't have any grades yet</h1>
+        <button class="Cub" *ngIf="hasnote()">
             <div class="Title">
                 <h1>(Name)</h1>
             </div>

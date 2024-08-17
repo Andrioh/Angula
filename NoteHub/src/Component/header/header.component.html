@@ -4,7 +4,8 @@
     </div>
     <div id="Nav">
         <nav>
-            <a href="#">New note</a>
+            <button (click)="AddNote()">New note</button>
+            <button *ngIf="Dle()" (click)="DeleteNote()">Delete</button>
         </nav>
     </div>
     <div id="Search">

@@ -32,12 +32,14 @@
     align-items: center;
 }
 
-a{
+button{
     text-decoration: none;
     color: var(--Cor1);
+    background-color: transparent;
+    border: none;
 }
 
-a:hover{
+button:hover{
     text-decoration: underline;
     text-underline-offset: 2px;
     cursor: pointer;

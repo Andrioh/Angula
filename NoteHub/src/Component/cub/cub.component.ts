@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { noteservice } from '../../app/Service/note.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cub',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './cub.component.html',
   styleUrl: './cub.component.css'
 })
-export class CubComponent {
 
+export class CubComponent {
+  constructor(private note: noteservice){}
+
+  HasNote: boolean | undefined;
+
+  hasnote(): boolean {
+    this.HasNote = this.note.HasNote();
+    return this.HasNote;
+}
+ 
 }
