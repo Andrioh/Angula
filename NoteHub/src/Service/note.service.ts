@@ -30,4 +30,8 @@ export class noteservice {
     return this.notes.some(notes => notes.id > 0)
   }
 
+  GetNoteById(id: number) {
+    return this.notes.find(note => note.id === id);
+  }
+
 }

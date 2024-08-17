@@ -1,19 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { noteservice } from '../../Service/note.service';
 import { CommonModule } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-notedetail',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './notedetail.component.html',
-  styleUrl: './notedetail.component.css'
+  styleUrls: ['./notedetail.component.css']
 })
+export class NotedetailComponent implements OnInit {
+  constructor(private noteService: noteservice, private router: Router, private route: ActivatedRoute) {}
 
-export class NotedetailComponent {
+  noteId!: number;
+  note: any;
 
-  constructor(private note: noteservice){}
- 
-  
+  ngOnInit() {
+    this.noteId = +this.route.snapshot.params['id'];
+    this.loadNoteDetails(this.noteId);
+  }
 
+  loadNoteDetails(id: number) {
+    this.note = this.noteService.GetNoteById(id);
+  }
 }
