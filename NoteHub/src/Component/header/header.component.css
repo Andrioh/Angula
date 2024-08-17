@@ -1,0 +1,59 @@
+@import url(../../styles.css);
+
+#Dad{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--Cor3);
+    height: 10%;
+    width: 100%;
+}
+
+#Title, #Nav, #Search{
+    display: flex;
+    height: 100%;
+    color: var(--Cor1);
+}
+
+#Nav, #Search{
+    width: 40%;
+}
+
+/* Title */
+
+#Title{
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+/* Nav */
+
+#Nav{
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: var(--Cor1);
+}
+
+a:hover{
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+
+/* Search */
+
+#Search{
+    justify-content: center;
+    align-items: center;
+}
+
+#InputSearch, #InputSearch::placeholder{
+    padding: 1%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: var(--Cor2);
+}
