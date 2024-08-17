@@ -12,8 +12,7 @@ interface Note {
 
 export class noteservice {
 
-  private notes: Note[] = [
-  ];
+  private notes: Note[] = [];
 
   GetNotes(){
     return this.notes

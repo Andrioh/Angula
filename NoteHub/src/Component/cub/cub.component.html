@@ -1,12 +1,12 @@
 <div id="Dad">
     <div id="Son">
         <h1 *ngIf="!hasnote()">Looks like you don't have any grades yet</h1>
-        <button class="Cub" *ngIf="hasnote()">
+        <button class="Cub" *ngFor="let note of notes" id={{note.id}}>
             <div class="Title">
-                <h1>(Name)</h1>
+                <h1>{{note.title}}</h1>
             </div>
             <div class="Content">
-                <h2>(Content)</h2>
+                <h2>{{note.content}}</h2>
             </div>
         </button>
     </div>

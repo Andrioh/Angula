@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { noteservice } from '../../app/Service/note.service';
+import { noteservice } from '../../Service/note.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,6 +14,10 @@ export class CubComponent {
   constructor(private note: noteservice){}
 
   HasNote: boolean | undefined;
+
+  get notes(){
+   return this.note.GetNotes()
+  }
 
   hasnote(): boolean {
     this.HasNote = this.note.HasNote();

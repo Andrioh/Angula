@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { noteservice } from '../../app/Service/note.service';
+import { noteservice } from '../../Service/note.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
