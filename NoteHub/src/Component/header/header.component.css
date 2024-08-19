@@ -67,14 +67,6 @@ button:hover{
     align-items: center;
 }
 
-#InputSearch, #InputSearch::placeholder{
-    padding: 1%;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    color: var(--Cor2);
-}
-
 @media (max-width: 850px) {
 
     #H1Title{
