@@ -6,7 +6,7 @@
                 <h1>{{note.title}}</h1>
             </div>
             <div class="Content">
-                <h2>{{note.content}}</h2>
+                <h2 id="ContentH2">{{ truncateContent(note.content, 45) }}</h2>
             </div>
         </button>
     </div>

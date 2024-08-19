@@ -34,6 +34,8 @@
 .Cub{
     min-height: 258px;
     min-width: 200px;
+    max-height: 258px;
+    max-width: 200px;
     border: none;
     background-color: transparent;
     margin: 10px;
@@ -70,4 +72,12 @@ button:hover{
     cursor: pointer;
     transform: scale(1.1);
     transition: 0.2s;
+}
+
+#ContentH2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
 }
