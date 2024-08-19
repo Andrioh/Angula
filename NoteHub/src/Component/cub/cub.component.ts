@@ -28,5 +28,6 @@ export class CubComponent {
   NoteDetail(id: number) {
     this.router.navigate(['/note', id]);
     this.header.AlterHeader()
+    this.header.AlterButtonSearch();
   }
 }

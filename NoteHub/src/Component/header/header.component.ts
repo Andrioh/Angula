@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { noteservice } from '../../Service/note.service';
 import { HeaderService } from '../../Service/header.service';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router'; // Importa Router
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Captura o ID da URL
     this.route.params.subscribe(params => {
       this.noteId = +params['id']; // Converte para número
     });
@@ -35,7 +34,6 @@ export class HeaderComponent implements OnInit {
     const NoteNew = { id: Id1, title: "New note", content: "Hello!" };
 
     this.note.AddNote(NoteNew);
-    console.log(this.note.GetNotes());
   }
 
   DeleteNote() {
@@ -43,6 +41,7 @@ export class HeaderComponent implements OnInit {
       this.note.DeletNote(this.noteId); // Usa o ID da URL
       this.router.navigate(['/']); // Navega para a tela inicial após deletar
       this.header.AlterHeader()
+      this.header.AlterButtonSearch();
       console.log(this.note.GetNotes())
     } else {
       console.error('ID da nota não encontrado na URL');
@@ -51,5 +50,15 @@ export class HeaderComponent implements OnInit {
 
   GetHeader(): boolean {
     return this.header.GetHeader();
+  }
+
+  ButtonSearch() {
+    return this.header.GetButtonSearch();
+  }
+
+  BackButton(){
+    this.header.AlterButtonSearch();
+    this.header.AlterHeader();
+    this.router.navigate(['/']);
   }
 }
