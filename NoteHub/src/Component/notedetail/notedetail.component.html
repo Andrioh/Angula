@@ -1,7 +1,7 @@
 <div id="Dad">
     <div id="Son">
         
-        <textarea>{{note.content}}</textarea>
+        <textarea [(ngModel)]="TextArea" (ngModelChange)="TextAreaUpdate()"></textarea>
 
     </div>
 </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { setActiveConsumer } from '@angular/core/primitives/signals';
 import { NumberValueAccessor } from '@angular/forms';
 
 interface Note {
@@ -48,9 +49,9 @@ export class noteservice {
     return this.notes.find(note => note.id === id);
   }
 
-  AlterTitle(Title: string, id: number) {
+  AlterTitle(Title: string, Id: number) {
     this.TitleNote = Title
-    this.IdNoteDetail = id
+    this.IdNoteDetail = Id
 
     if (this.notes && this.IdNoteDetail) {
       const SearchId = this.notes.find((note: Note) => note.id === this.IdNoteDetail)
@@ -63,14 +64,35 @@ export class noteservice {
     )
   }
 
-  GetTitle(id: number): string {
+  GetTitle(Id: number): string {
     if (this.notes) {
-      const SearchId = this.notes.find((note: Note) => note.id === id)
+      const SearchId = this.notes.find((note: Note) => note.id === Id)
       if (SearchId) {
         return SearchId.title
       }
     }
     return "";
-    // AlterContent(Content: string){this.ContentNote = Content}
+  }
+
+  AlterContent(Content: string, Id: number) {
+    this.ContentNote = Content
+    this.IdNoteDetail = Id
+    if (this.notes) {
+      const SearchId = this.notes.find((note: Note) => note.id === Id)
+      if (SearchId){
+        SearchId.content = Content
+        localStorage.setItem("Notes", JSON.stringify(this.notes))
+      }
+    }
+  }
+
+  GetContent(Id: number): string {
+    if (this.notes){
+      const SearchId = this.notes.find((note: Note) => note.id === Id)
+      if (SearchId){
+        return SearchId.content
+      }
+    }
+    return "";
   }
 }

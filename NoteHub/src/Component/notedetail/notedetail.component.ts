@@ -15,16 +15,19 @@ export class NotedetailComponent implements OnInit {
   constructor(private noteService: noteservice, private router: Router, private route: ActivatedRoute) {}
 
   noteId!: number;
-  note: any;
   ContentMessage: string | undefined
 
   ngOnInit() {
     this.noteId = +this.route.snapshot.params['id'];
-    this.loadNoteDetails(this.noteId);
+    this.TextArea = this.noteService.GetContent(this.noteId)
   }
 
-  loadNoteDetails(id: number) {
-    this.note = this.noteService.GetNoteById(id);
+  TextArea: string = "Hello!"
+
+  TextAreaUpdate(){
+    if (this.noteId){
+      this.noteService.AlterContent(this.TextArea, this.noteId)
+    }
   }
    
 }
