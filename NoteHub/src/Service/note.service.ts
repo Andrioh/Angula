@@ -14,19 +14,30 @@ export class noteservice {
 
   private notes: Note[] = [];
 
+  ConverteLocal(){
+    const SavedNotes = localStorage.getItem("Notes");
+    return SavedNotes ? JSON.parse(SavedNotes) : []
+  }
+  
   GetNotes(){
+    const value = this.ConverteLocal()
+    this.notes = value
     return this.notes
   }
 
   AddNote(Note: Note){
     this.notes.push(Note)
+    localStorage.setItem("Notes",JSON.stringify(this.notes))
   }
 
   DeletNote(id: number): void{
-    this.notes = this.notes.filter(notes => notes.id !== id) 
+    this.notes = this.GetNotes()
+    this.notes = this.notes.filter(notes => notes.id !== id)
+    localStorage.setItem("Notes", JSON.stringify(this.notes))    
   }
 
   HasNote():boolean {
+    this.GetNotes()
     return this.notes.some(notes => notes.id > 0)
   }
 
