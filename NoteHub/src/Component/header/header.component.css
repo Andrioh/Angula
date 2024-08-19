@@ -26,6 +26,14 @@
     width: 20%;
 }
 
+#InputTitle, #InputTitle:focus{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 28%;
+    color: var(--Cor1);
+}
+
 /* Nav */
 
 #Nav{

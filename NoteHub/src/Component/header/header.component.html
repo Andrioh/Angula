@@ -5,7 +5,8 @@
     <div id="Nav">
         <nav>
             <button *ngIf="!GetHeader()" (click)="AddNote()">New note</button>
-            <button *ngIf="GetHeader()" (click)="DeleteNote()">Delete</button>
+            <input type="text" *ngIf="GetHeader()" value="New note" id="InputTitle" autocomplete="off">
+            <button *ngIf="GetHeader()" (click)="DeleteNote()">- Delete</button>
         </nav>
     </div>
     <div id="Search">
