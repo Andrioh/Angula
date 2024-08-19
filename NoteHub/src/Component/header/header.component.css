@@ -24,6 +24,11 @@
     justify-content: center;
     align-items: center;
     width: 20%;
+    text-align: center;
+}
+
+#H1Title{
+    font-size: 32px;
 }
 
 #InputTitle, #InputTitle:focus{
@@ -69,3 +74,42 @@ button:hover{
     outline: none;
     color: var(--Cor2);
 }
+
+@media (max-width: 850px) {
+
+    #H1Title{
+        font-size: 140%;
+     }
+
+}
+
+ @media (max-width: 600px) {
+     #H1Title{
+        font-size: 100%;
+     }
+
+     button{
+        font-size: 55%;
+     }
+
+     #InputTitle[_ngcontent-ng-c776021445], #InputTitle[_ngcontent-ng-c776021445]:focus{
+        font-size: 54%;
+     }
+ }
+
+ @media (max-width: 280px) {
+
+    #Search{
+        display: none;
+    }
+
+    #Title{
+        width: 50%;
+    }
+
+    #Nav{
+        width: 50%;
+        justify-content: center;
+    }
+
+ }
