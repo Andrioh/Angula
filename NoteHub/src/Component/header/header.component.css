@@ -32,6 +32,8 @@
     outline: none;
     width: 28%;
     color: var(--Cor1);
+    border-bottom: 1px solid var(--Cor1);
+    margin-right: 4px;
 }
 
 /* Nav */
