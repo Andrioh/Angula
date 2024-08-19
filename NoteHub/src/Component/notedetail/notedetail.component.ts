@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { noteservice } from '../../Service/note.service';
 import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-notedetail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './notedetail.component.html',
   styleUrls: ['./notedetail.component.css']
 })
@@ -15,6 +16,7 @@ export class NotedetailComponent implements OnInit {
 
   noteId!: number;
   note: any;
+  ContentMessage: string | undefined
 
   ngOnInit() {
     this.noteId = +this.route.snapshot.params['id'];
@@ -24,4 +26,5 @@ export class NotedetailComponent implements OnInit {
   loadNoteDetails(id: number) {
     this.note = this.noteService.GetNoteById(id);
   }
+   
 }

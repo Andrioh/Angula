@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { noteservice } from '../../Service/note.service';
 import { HeaderService } from '../../Service/header.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -19,11 +20,12 @@ export class HeaderComponent implements OnInit {
     private header: HeaderService,
     private route: ActivatedRoute,
     private router: Router // Injetar o Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.noteId = +params['id']; // Converte para número
+      this.TitleNoteMsg = this.note.GetTitle(this.noteId) 
     });
   }
 
@@ -56,9 +58,19 @@ export class HeaderComponent implements OnInit {
     return this.header.GetButtonSearch();
   }
 
-  BackButton(){
+  BackButton() {
     this.header.AlterButtonSearch();
     this.header.AlterHeader();
     this.router.navigate(['/']);
+  }
+
+  TitleNoteMsg: string = ""
+
+  oninput() {
+    if (this.noteId) {
+      this.note.AlterTitle(this.TitleNoteMsg, this.noteId)
+    } else {
+      console.log("[ERRO]: Id da nota não foi capturado!")
+    }
   }
 }

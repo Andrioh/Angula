@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NumberValueAccessor } from '@angular/forms';
 
 interface Note {
   id: number;
@@ -13,30 +14,32 @@ interface Note {
 export class noteservice {
 
   private notes: Note[] = [];
+  TitleNote: string | undefined;
+  ContentNote: string | undefined;
+  IdNoteDetail: number | undefined;
 
-  ConverteLocal(){
+  ConverteLocal() {
     const SavedNotes = localStorage.getItem("Notes");
     return SavedNotes ? JSON.parse(SavedNotes) : []
   }
-  
-  GetNotes(){
-    const value = this.ConverteLocal()
-    this.notes = value
+
+  GetNotes() {
+    this.notes = this.ConverteLocal()
     return this.notes
   }
 
-  AddNote(Note: Note){
+  AddNote(Note: Note) {
     this.notes.push(Note)
-    localStorage.setItem("Notes",JSON.stringify(this.notes))
+    localStorage.setItem("Notes", JSON.stringify(this.notes))
   }
 
-  DeletNote(id: number): void{
+  DeletNote(id: number): void {
     this.notes = this.GetNotes()
     this.notes = this.notes.filter(notes => notes.id !== id)
-    localStorage.setItem("Notes", JSON.stringify(this.notes))    
+    localStorage.setItem("Notes", JSON.stringify(this.notes))
   }
 
-  HasNote():boolean {
+  HasNote(): boolean {
     this.GetNotes()
     return this.notes.some(notes => notes.id > 0)
   }
@@ -45,4 +48,29 @@ export class noteservice {
     return this.notes.find(note => note.id === id);
   }
 
+  AlterTitle(Title: string, id: number) {
+    this.TitleNote = Title
+    this.IdNoteDetail = id
+
+    if (this.notes && this.IdNoteDetail) {
+      const SearchId = this.notes.find((note: Note) => note.id === this.IdNoteDetail)
+      if (SearchId) {
+        SearchId.title = this.TitleNote
+        localStorage.setItem("Notes", JSON.stringify(this.notes))
+      }
+    } else (
+      console.log("[ERRO]: Id service não encontrado!")
+    )
+  }
+
+  GetTitle(id: number): string {
+    if (this.notes) {
+      const SearchId = this.notes.find((note: Note) => note.id === id)
+      if (SearchId) {
+        return SearchId.title
+      }
+    }
+    return "";
+    // AlterContent(Content: string){this.ContentNote = Content}
+  }
 }
